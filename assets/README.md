@@ -23,6 +23,6 @@ Non commitées : régénérer à la demande.
 | kore-genie | or `#fbbf24` | réseau neuronal |
 | kore-n8n | rose `#EA4B71` | workflow |
 | kore-traefik | blanc `#ffffff` | 3 couches de routage |
-| kore-monitoring | cyan `#22d3ee` | sparkline |
+| kore-monitoring | orange `#E6522C` | sparkline |
 | **kore-watchtower** | **violet `#a855f7`** | **flèches circulaires (refresh)** |
 | kore-backup | teal `#14b8a6` | snapshots empilés |
