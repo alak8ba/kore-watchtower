@@ -45,12 +45,12 @@
   <circle cx="100" cy="100" r="1.8" fill="#a855f7"/>
 
   <!-- Texte KORE -->
-  <text x="100" y="155" text-anchor="middle"
+  <text x="100" y="152" text-anchor="middle"
         font-family="'JetBrains Mono', monospace" font-weight="700"
         font-size="20" fill="#ffffff" letter-spacing="3">KORE</text>
 
-  <!-- Texte WATCHTOWER -->
-  <text x="100" y="172" text-anchor="middle"
+  <!-- Texte WATCHTOWER (taille reduite pour rester dans l'hexagone) -->
+  <text x="100" y="166" text-anchor="middle"
         font-family="'JetBrains Mono', monospace" font-weight="400"
-        font-size="9" fill="#a855f7" opacity="0.8" letter-spacing="2">WATCHTOWER</text>
+        font-size="8" fill="#a855f7" opacity="0.85" letter-spacing="1.5">WATCHTOWER</text>
 </svg>
