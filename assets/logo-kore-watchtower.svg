@@ -22,27 +22,27 @@
            fill="none" stroke="#a855f7" stroke-width="0.5" opacity="0.3"/>
 
   <!-- Symbole : flèches circulaires (refresh / mise a jour auto)
-       Deux arcs opposés formant un cercle, chacun terminé par une pointe -->
+       Cercle centre sur (100, 88), rayon 27. Zone : y=61 → y=115. -->
 
   <!-- Arc supérieur (sens horaire, de gauche vers droite) -->
-  <path d="M 65 100 A 35 35 0 0 1 135 100"
+  <path d="M 73 88 A 27 27 0 0 1 127 88"
         fill="none" stroke="#a855f7" stroke-width="3"
         stroke-linecap="round" filter="url(#glow-purple)"/>
-  <!-- Pointe de flèche en haut à droite -->
-  <polygon points="135,100 128,93 142,93" fill="#a855f7" filter="url(#glow-purple)"/>
+  <!-- Pointe de flèche au point de sortie de l'arc supérieur (haut à droite) -->
+  <polygon points="127,88 120,81 134,81" fill="#a855f7" filter="url(#glow-purple)"/>
 
   <!-- Arc inférieur (sens horaire, de droite vers gauche) -->
-  <path d="M 135 100 A 35 35 0 0 1 65 100"
+  <path d="M 127 88 A 27 27 0 0 1 73 88"
         fill="none" stroke="#a855f7" stroke-width="3"
         stroke-linecap="round" filter="url(#glow-purple)"/>
-  <!-- Pointe de flèche en bas à gauche -->
-  <polygon points="65,100 72,107 58,107" fill="#a855f7" filter="url(#glow-purple)"/>
+  <!-- Pointe de flèche au point de sortie de l'arc inférieur (bas à gauche) -->
+  <polygon points="73,88 80,95 66,95" fill="#a855f7" filter="url(#glow-purple)"/>
 
   <!-- Cœur central : conteneur surveillé -->
-  <rect x="92" y="92" width="16" height="16" rx="2"
+  <rect x="92" y="80" width="16" height="16" rx="2"
         fill="none" stroke="#a855f7" stroke-width="1.8"
         filter="url(#glow-purple)"/>
-  <circle cx="100" cy="100" r="1.8" fill="#a855f7"/>
+  <circle cx="100" cy="88" r="1.8" fill="#a855f7"/>
 
   <!-- Texte KORE -->
   <text x="100" y="148" text-anchor="middle"
