@@ -6,14 +6,22 @@
 
 Mises à jour automatiques des conteneurs Docker sur le VPS KORE — **opt-in par label**.
 
-## Rôle dans l'écosystème
+## L'écosystème KORE
 
-| Brique | Responsabilité |
-|---|---|
-| [kore-traefik](https://github.com/alak8ba/kore-traefik) | Reverse proxy + TLS + sécurité transverse |
-| **kore-watchtower** (ici) | Mise à jour auto des conteneurs opt-in |
-| [kore-monitoring](https://github.com/alak8ba/kore-monitoring) | Prometheus + Grafana + Loki |
-| [kore-backup](https://github.com/alak8ba/kore-backup) | Snapshots restic des volumes |
+Chaque brique suit la même logique : extraite ou construite sur une base réelle, documentée, testée, utile.
+
+| Brique | Description | Statut |
+|---|---|---|
+| [kore-hexagonal](https://github.com/alak8ba/kore-hexagonal) | Architecture hexagonale Java/Spring Boot • 1,5 an de production réelle | Disponible |
+| [kore-batch](https://github.com/alak8ba/kore-batch) | Traitement batch • plusieurs années de production | Disponible |
+| [kore-genie](https://github.com/alak8ba/kore-genie) | Socle IA privée & RAG • déploiement on-premise | Disponible |
+| [kore-n8n](https://github.com/alak8ba/kore-n8n) | Automatisation self-hosted • n8n • Docker • Traefik | Disponible |
+| [kore-traefik](https://github.com/alak8ba/kore-traefik) | Reverse proxy mutualisé • TLS + sécurité transverse au proxy | Disponible |
+| [kore-monitoring](https://github.com/alak8ba/kore-monitoring) | Observabilité VPS • Prometheus + Loki + Grafana + Alertmanager | Disponible |
+| **[kore-watchtower](https://github.com/alak8ba/kore-watchtower)** | **Mises à jour auto des conteneurs Docker opt-in par label** | **Disponible** |
+| [kore-backup](https://github.com/alak8ba/kore-backup) | Snapshots chiffrés (restic) vers stockage distant + drill | Disponible |
+| kore-stream | Traitement de flux temps réel | Prévu |
+| kore-react | Composants frontend réutilisables | Prévu |
 
 Chaque brique vit dans son propre dossier sur le VPS (`/opt/watchtower`, `/opt/traefik`, …) et se branche sur le réseau partagé `traefik-public` quand nécessaire.
 
