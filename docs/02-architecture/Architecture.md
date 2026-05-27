@@ -60,9 +60,9 @@ Une seule image, un seul conteneur. C'est la stack la plus simple de l'écosyst�
 
 | Mode | Description | Notre choix |
 |---|---|---|
-| **Label opt-in** | Seuls les conteneurs avec le label sont touchés | ✅ retenu — voir [ADR-001](../03-design/adr-001-opt-in-par-label.md) |
+| **Label opt-in** | Seuls les conteneurs avec le label sont touchés | ✅ retenu - voir [ADR-001](../03-design/adr-001-opt-in-par-label.md) |
 | All-containers | Tous les conteneurs en marche sont candidats | ❌ trop risqué (DBs, infra) |
-| Monitor-only | Notifie sans agir | Non utilisé — viser kore-monitoring + Alertmanager pour ça |
+| Monitor-only | Notifie sans agir | Non utilisé - viser kore-monitoring + Alertmanager pour ça |
 | One-shot | Une seule passe puis quitte | Utile pour debug : `docker run --rm ... watchtower --run-once` |
 
 ## Sécurité
@@ -72,9 +72,9 @@ Une seule image, un seul conteneur. C'est la stack la plus simple de l'écosyst�
 | Socket Docker | Monté en **lecture seule** (`:ro`). Watchtower peut interroger + déclencher pull/restart via API, mais ne peut pas `chmod` le socket lui-même |
 | `read_only` rootfs | Activé. Pas d'écriture sur le système de fichiers du conteneur |
 | `no-new-privileges` | Activé. Empêche l'escalade de privilèges (setuid, capabilities) |
-| Ressources | `mem_limit: 128m`, `cpus: 0.5` — Watchtower est très léger |
+| Ressources | `mem_limit: 128m`, `cpus: 0.5` - Watchtower est très léger |
 | Ports exposés | **Aucun**. Le service n'écoute sur rien |
-| Réseau | Pas de réseau Docker custom nécessaire — interaction uniquement via socket |
+| Réseau | Pas de réseau Docker custom nécessaire - interaction uniquement via socket |
 
 Le risque résiduel principal : un attaquant qui compromet l'image `containrrr/watchtower` (chaîne d'approvisionnement) aurait accès à l'API Docker. Mitigations :
 - Pinner l'image en production (`containrrr/watchtower:1.7.1` plutôt que `latest`).
@@ -92,7 +92,7 @@ Pas de réseau Docker requis. Watchtower communique avec le démon via `unix:///
 
 | Brique | Rôle vis-à-vis de kore-watchtower |
 |---|---|
-| [kore-traefik](https://github.com/alak8ba/kore-traefik) | Pas de dépendance directe. Watchtower peut auto-update Traefik si label opt-in — **déconseillé** sur le reverse proxy critique |
+| [kore-traefik](https://github.com/alak8ba/kore-traefik) | Pas de dépendance directe. Watchtower peut auto-update Traefik si label opt-in - **déconseillé** sur le reverse proxy critique |
 | [kore-monitoring](https://github.com/alak8ba/kore-monitoring) | Watchtower n'expose pas de métriques Prometheus. Si surveillance souhaitée, parser ses logs via Loki + alerte sur `level=error` |
 | [kore-backup](https://github.com/alak8ba/kore-backup) | Pas de volume à snapshotter |
 
@@ -101,7 +101,7 @@ Pas de réseau Docker requis. Watchtower communique avec le démon via `unix:///
 À **activer** sur :
 - Frontends statiques (Next.js, Nuxt en build mode, sites Hugo/Astro).
 - APIs stateless avec versions patch fréquentes.
-- Sidecars infra (Promtail, node-exporter, cAdvisor — généralement stables).
+- Sidecars infra (Promtail, node-exporter, cAdvisor - généralement stables).
 - Grafana (les patchs sont sûrs ; les dashboards sont dans le volume persistant).
 
 À **NE PAS activer** sur :
@@ -113,7 +113,7 @@ Pas de réseau Docker requis. Watchtower communique avec le démon via `unix:///
 
 ## Quand cette architecture cesse de tenir
 
-- **Adoption d'un orchestrateur cluster** (K8s + Argo CD/Flux) : Watchtower devient redondant — le contrôleur GitOps gère les updates.
+- **Adoption d'un orchestrateur cluster** (K8s + Argo CD/Flux) : Watchtower devient redondant - le contrôleur GitOps gère les updates.
 - **Pipeline CI/CD push-based** : si chaque build pousse l'image puis déclenche un webhook de redéploiement, le polling devient inutile.
 - **Multi-host** : Watchtower est mono-host. Pour plusieurs VPS, soit déployer Watchtower sur chaque, soit migrer vers un orchestrateur.
 - **Conformité réglementaire** demandant un changelog signé par humain avant tout déploiement : désactiver Watchtower, passer en pull manuel.

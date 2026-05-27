@@ -1,4 +1,4 @@
-# ADR-001 — Watchtower opt-in par label, pas all-containers
+# ADR-001 - Watchtower opt-in par label, pas all-containers
 
 - **Statut** : Accepté
 - **Date** : 2026-05-27

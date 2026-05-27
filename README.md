@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="assets/logo-kore-watchtower.svg" alt="kore-watchtower" width="160"/>
+  <img src="assets/logo-kore-watchtower.svg" alt="kore-watchtower" width="200"/>
 </p>
 
 # kore-watchtower
 
-Mises à jour automatiques des conteneurs Docker sur le VPS KORE — **opt-in par label**.
+Mises à jour automatiques des conteneurs Docker sur le VPS KORE - **opt-in par label**.
 
 ## L'écosystème KORE
 

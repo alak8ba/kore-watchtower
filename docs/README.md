@@ -1,4 +1,4 @@
-# Documentation — Kore Watchtower
+# Documentation - Kore Watchtower
 
 Mises à jour automatiques des conteneurs Docker opt-in sur le VPS KORE.
 
