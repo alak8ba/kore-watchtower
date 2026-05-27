@@ -10,7 +10,7 @@ services:
 
     mem_limit: 128m
     mem_reservation: 32m
-    cpus: 0.5
+#    cpus: 0.5
 
     logging:
       driver: "json-file"
@@ -19,6 +19,8 @@ services:
         max-file: "3"
 
     environment:
+      DOCKER_API_VERSION: "1.52"
+      # WATCHTOWER_SCOPE: seaway
       # Opt-in par label : seuls les conteneurs avec
       # com.centurylinklabs.watchtower.enable=true sont mis a jour.
       WATCHTOWER_LABEL_ENABLE: "true"
@@ -27,8 +29,15 @@ services:
       WATCHTOWER_INCLUDE_RESTARTING: "true"
       WATCHTOWER_NOTIFICATION_URL: ${WATCHTOWER_NOTIFICATION_URL:-}
       TZ: Europe/Paris
-
+#    cap_drop:
+#      - ALL
+#    command: >
+#      --interval 900
+#      --cleanup
+#      --label-enable
+#      --rolling-restart
     volumes:
       # Lecture seule : Watchtower lit l'etat des conteneurs et declenche
       # pull + restart via l'API Docker.
       - /var/run/docker.sock:/var/run/docker.sock:ro
+#      - /root/.docker/config.json:/config.json:ro
