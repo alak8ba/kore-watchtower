@@ -4,7 +4,7 @@ Logos et ressources visuelles du projet.
 
 | Fichier | Usage |
 |---------|-------|
-| `logo-kore-watchtower.svg` | Logo officiel, 200×200, slate `#406170` sur fond sombre, cohérent avec les autres logos KORE. |
+| `logo-kore-watchtower.svg` | Logo officiel, 200×200, slate `#6BA3B8` sur fond sombre, cohérent avec les autres logos KORE. |
 
 ## Variantes PNG (régénérables)
 
@@ -24,5 +24,5 @@ Non commitées : régénérer à la demande.
 | kore-n8n | rose `#EA4B71` | workflow |
 | kore-traefik | blanc `#ffffff` | 3 couches de routage |
 | kore-monitoring | orange `#E6522C` | sparkline |
-| **kore-watchtower** | **slate `#406170`** | **flèches circulaires (refresh)** |
-| kore-backup | teal `#14b8a6` | snapshots empilés |
+| **kore-watchtower** | **slate `#6BA3B8`** | **flèches circulaires (refresh)** |
+| kore-backup | teal `#2DD4BF` | snapshots empilés |
