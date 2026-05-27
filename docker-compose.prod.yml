@@ -1,0 +1,34 @@
+services:
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+
+    mem_limit: 128m
+    mem_reservation: 32m
+    cpus: 0.5
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+    environment:
+      # Opt-in par label : seuls les conteneurs avec
+      # com.centurylinklabs.watchtower.enable=true sont mis a jour.
+      WATCHTOWER_LABEL_ENABLE: "true"
+      WATCHTOWER_POLL_INTERVAL: ${WATCHTOWER_POLL_INTERVAL:-3600}
+      WATCHTOWER_CLEANUP: ${WATCHTOWER_CLEANUP:-true}
+      WATCHTOWER_INCLUDE_RESTARTING: "true"
+      WATCHTOWER_NOTIFICATION_URL: ${WATCHTOWER_NOTIFICATION_URL:-}
+      TZ: Europe/Paris
+
+    volumes:
+      # Lecture seule : Watchtower lit l'etat des conteneurs et declenche
+      # pull + restart via l'API Docker.
+      - /var/run/docker.sock:/var/run/docker.sock:ro

@@ -1,0 +1,17 @@
+# Secrets
+.env
+.env.prod
+.env.local
+
+# Logs
+*.log
+
+# IDE / OS
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code
+/.claude/
